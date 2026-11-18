@@ -16,6 +16,10 @@ export default function BelynCaseStudy() {
     const title = "BELYN — From Kashmir to the Digital World | Inam Ul Haq";
     const description = "A complete eCommerce experience for BELYN, a Kashmir-rooted brand. Case study by Inam Ul Haq — Web Developer, UI/UX Designer and Digital Creator.";
     document.title = title;
+    const fontLink = document.createElement("link");
+    fontLink.rel = "stylesheet";
+    fontLink.href = "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap";
+    document.head.appendChild(fontLink);
     const setMeta = (selector: string, attr: string, value: string) => {
       let node = document.head.querySelector(selector) as HTMLMetaElement | null;
       if (!node) { node = document.createElement("meta"); document.head.appendChild(node); }
