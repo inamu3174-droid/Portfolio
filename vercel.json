@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/projects/belyn", "destination": "/index.html" },
+    { "source": "/projects/belyn/", "destination": "/index.html" }
+  ]
+}
