@@ -21,11 +21,11 @@ export default function BelynCaseStudy() {
       if (!node) { node = document.createElement("meta"); document.head.appendChild(node); }
       node.setAttribute(attr, value);
     };
-    setMeta('meta[name="description"]', "name", description);
+    setMeta('meta[name="description"]', "content", description);
     setMeta('meta[property="og:title"]', "content", title);
     setMeta('meta[property="og:description"]', "content", description);
     setMeta('meta[property="og:type"]', "content", "article");
-    setMeta('meta[property="og:url"]', "content", "https://inam.dev/projects/belyn");
+    setMeta('meta[property="og:url"]', "content", window.location.origin + window.location.pathname);
     setMeta('meta[property="og:image"]', "content", liveShot);
     setMeta('meta[name="twitter:card"]', "content", "summary_large_image");
     setMeta('meta[name="twitter:title"]', "content", title);
