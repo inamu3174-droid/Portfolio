@@ -22,7 +22,12 @@ export default function BelynCaseStudy() {
     document.head.appendChild(fontLink);
     const setMeta = (selector: string, attr: string, value: string) => {
       let node = document.head.querySelector(selector) as HTMLMetaElement | null;
-      if (!node) { node = document.createElement("meta"); document.head.appendChild(node); }
+      if (!node) {
+        node = document.createElement("meta");
+        const match = selector.match(/meta\\[(name|property)="([^"]+)"\\]/);
+        if (match) node.setAttribute(match[1], match[2]);
+        document.head.appendChild(node);
+      }
       node.setAttribute(attr, value);
     };
     setMeta('meta[name="description"]', "content", description);
