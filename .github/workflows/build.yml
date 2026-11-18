@@ -15,3 +15,20 @@ jobs:
           node-version: 22
       - run: npm install --no-audit --no-fund
       - run: npm run build
+      - run: npm install --no-save playwright --no-audit --no-fund
+      - run: npx playwright install --with-deps chromium
+      - run: npm run preview -- --host 127.0.0.1 > /tmp/portfolio-preview.log 2>&1 &
+      - run: |
+          for attempt in $(seq 1 30); do
+            if curl --silent --fail http://127.0.0.1:4173/ > /dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/portfolio-preview.log
+          exit 1
+      - run: node tests/responsive-smoke.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: belyn-responsive-screenshots
+          path: artifacts/
+          if-no-files-found: ignore
