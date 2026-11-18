@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import BelynCaseStudy from "./BelynCaseStudy";
 import {
   ArrowDown,
   ArrowUpRight,
@@ -13,7 +14,7 @@ import {
 import { PROJECTS_DATA, SERVICES_DATA, SKILLS_DATA, MILESTONES_DATA } from "./data/portfolioData";
 import { soundManager } from "./audio";
 
-function App() {
+function PortfolioHome() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [soundOn, setSoundOn] = useState(soundManager.enabled);
   const [activeProject, setActiveProject] = useState<string | null>(null);
@@ -156,6 +157,7 @@ function App() {
                       <button
                         onClick={() => {
                           click();
+                          if (project.id === "belyn") { window.location.assign("/projects/belyn"); return; }
                           setActiveProject(project.id);
                         }}
                         className="rounded-full border border-white/10 p-3 transition hover:bg-white hover:text-black"
@@ -362,3 +364,11 @@ function Info({ title, text }: { title: string; text: string }) {
 }
 
 export default App;
+
+
+export default function App() {
+  if (typeof window !== "undefined" && window.location.pathname.replace(/\\/+$/, "") === "/projects/belyn") {
+    return <BelynCaseStudy />;
+  }
+  return <PortfolioHome />;
+}
