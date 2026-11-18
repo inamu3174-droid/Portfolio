@@ -24,8 +24,9 @@ export default function BelynCaseStudy() {
       let node = document.head.querySelector(selector) as HTMLMetaElement | null;
       if (!node) {
         node = document.createElement("meta");
-        const match = selector.match(/meta\\[(name|property)="([^"]+)"\\]/);
-        if (match) node.setAttribute(match[1], match[2]);
+        const keyName = selector.includes("[name=") ? "name" : "property";
+        const keyValue = selector.split('"')[1];
+        if (keyValue) node.setAttribute(keyName, keyValue);
         document.head.appendChild(node);
       }
       node.setAttribute(attr, value);
