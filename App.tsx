@@ -363,9 +363,6 @@ function Info({ title, text }: { title: string; text: string }) {
   );
 }
 
-export default App;
-
-
 export default function App() {
   if (typeof window !== "undefined" && window.location.pathname.replace(/\\/+$/, "") === "/projects/belyn") {
     return <BelynCaseStudy />;
