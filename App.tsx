@@ -364,7 +364,7 @@ function Info({ title, text }: { title: string; text: string }) {
 }
 
 export default function App() {
-  if (typeof window !== "undefined" && window.location.pathname.replace(/\\/+$/, "") === "/projects/belyn") {
+  if (typeof window !== "undefined" && (window.location.pathname === "/projects/belyn" || window.location.pathname === "/projects/belyn/")) {
     return <BelynCaseStudy />;
   }
   return <PortfolioHome />;
