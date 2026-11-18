@@ -36,6 +36,9 @@ export default function BelynCaseStudy() {
     setMeta('meta[property="og:description"]', "content", description);
     setMeta('meta[property="og:type"]', "content", "article");
     setMeta('meta[property="og:url"]', "content", window.location.origin + window.location.pathname);
+    let canonical = document.head.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
+    canonical.href = window.location.origin + window.location.pathname;
     setMeta('meta[property="og:image"]', "content", liveShot);
     setMeta('meta[name="twitter:card"]', "content", "summary_large_image");
     setMeta('meta[name="twitter:title"]', "content", title);
@@ -232,7 +235,7 @@ export default function BelynCaseStudy() {
         <section id="credits" className="scroll-mt-24 bg-[#173d32] px-5 py-20 text-[#f8f6ef] md:px-10 md:py-28">
           <div className="mx-auto max-w-[1240px]">
             <div className="belyn-reveal flex flex-col justify-between gap-12 border-b border-white/20 pb-12 md:flex-row md:items-end">
-              <div><Kicker light>09 / PROJECT CREDITS</Kicker><p className="belyn-display mt-5 text-5xl md:text-7xl">Designed & developed by</p><h2 className="mt-3 text-3xl font-semibold tracking-[-.04em] md:text-5xl">INAM UL HAQ</h2><p className="mt-4 text-[10px] font-semibold tracking-[.2em] text-white/60">WEB DEVELOPER · DESIGNER · DIGITAL CREATOR</p><p className="mt-3 text-xs text-white/55">Mattan Chowk, Anantnag, Kashmir, India</p></div>
+              <div><Kicker light>09 / PROJECT CREDITS</Kicker><p className="belyn-display mt-5 text-5xl md:text-7xl">Designed & developed by</p><h2 className="mt-3 text-3xl font-semibold tracking-[-.04em] md:text-5xl">INAM UL HAQ</h2><p className="mt-4 text-[10px] font-semibold tracking-[.2em] text-white/60">WEB DEVELOPER · UI/UX DESIGNER · DIGITAL CREATOR</p><p className="mt-3 text-xs text-white/55">Mattan Chowk, Anantnag, Kashmir, India</p></div>
               <div className="flex flex-wrap gap-3"><a href="https://github.com/inamu3174-droid" target="_blank" rel="noreferrer" className="belyn-link flex items-center gap-3 rounded-full border border-white/25 px-5 py-3 text-xs hover:bg-white hover:text-[#173d32]"><Github size={16}/> GitHub <ArrowUpRight size={13}/></a><a href="https://share.google/p7ICZlnNEwxOSqBvh" target="_blank" rel="noreferrer" className="belyn-link flex items-center gap-3 rounded-full border border-white/25 px-5 py-3 text-xs hover:bg-white hover:text-[#173d32]"><Linkedin size={16}/> LinkedIn <ArrowUpRight size={13}/></a></div>
             </div>
             <div className="flex flex-col justify-between gap-5 pt-8 text-[9px] font-semibold tracking-[.16em] text-white/45 md:flex-row"><span>BELYN / BORN IN KASHMIR. CRAFTED WITH PURITY.</span><a href={site} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-[#d5c39f] hover:text-white">VISIT LIVE WEBSITE <ArrowUpRight size={13}/></a><a href="/" className="inline-flex items-center gap-2 hover:text-white"><ArrowLeft size={13}/> BACK TO PORTFOLIO</a><span>© 2026 INAM UL HAQ</span></div>
