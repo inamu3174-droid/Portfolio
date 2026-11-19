@@ -32,6 +32,36 @@ export default function BelynCaseStudy() {
       node.setAttribute(attr, value);
     };
     setMeta('meta[name="description"]', "content", description);
+    setMeta('meta[name="author"]', "content", "Inam ul Haq");
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "@id": window.location.origin + window.location.pathname + "#belyn-case-study",
+      "name": "BELYN — eCommerce Website Design & Development",
+      "url": window.location.origin + window.location.pathname,
+      "about": { "@type": "Brand", "name": "BELYN", "url": "https://www.belyn.in/" },
+      "creator": {
+        "@type": "Person",
+        "@id": window.location.origin + "/#inam-ul-haq",
+        "name": "Inam ul Haq",
+        "jobTitle": "Web Developer and UI/UX Designer",
+        "url": window.location.origin + "/",
+        "sameAs": [
+          "https://github.com/inamu3174-droid",
+          "https://share.google/p7ICZlnNEwxOSqBvh"
+        ]
+      },
+      "description": description,
+      "keywords": ["BELYN", "Kashmir", "eCommerce", "website design", "web development", "Inam ul Haq"]
+    };
+    let schemaNode = document.getElementById("belyn-structured-data");
+    if (!schemaNode) {
+      schemaNode = document.createElement("script");
+      schemaNode.id = "belyn-structured-data";
+      schemaNode.setAttribute("type", "application/ld+json");
+      document.head.appendChild(schemaNode);
+    }
+    schemaNode.textContent = JSON.stringify(structuredData);
     setMeta('meta[property="og:title"]', "content", title);
     setMeta('meta[property="og:description"]', "content", description);
     setMeta('meta[property="og:type"]', "content", "article");
