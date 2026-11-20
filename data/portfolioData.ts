@@ -25,7 +25,7 @@ export const PROJECTS_DATA: Project[] = [
     result: 'Achieved 98/100 Lighthouse performance score with 45% faster item addition flow than traditional e-commerce templates.',
     demoType: 'ecommerce-stride',
     githubUrl: 'https://github.com/inamulhaq/stride-athletics',
-    liveUrl: 'https://stride-athletics.demo'
+    liveUrl: 'https://shop-xi-rouge.vercel.app/'
   },
   {
     id: 'amazon-2026',
@@ -51,7 +51,7 @@ export const PROJECTS_DATA: Project[] = [
     result: 'Delivered an ultra-responsive marketplace prototype handling over 50 mock catalog items across 6 categories with 0ms UI delay.',
     demoType: 'ecommerce-amazon',
     githubUrl: 'https://github.com/inamulhaq/amazon-2026-clone',
-    liveUrl: 'https://amazon2026.demo'
+    liveUrl: 'https://amaazonbyinam.vercel.app/#/'
   },
   {
     id: 'lumina',
